@@ -60,8 +60,7 @@ router.put('/:id', (req, res) => {
       where: {
         id: req.params.id,
       },
-    }
-  )
+    })
     .then((categoryData) => {
       if (!categoryData) {
         res.status(404).json({ message: "Category NOT Found with Given ID" });
