@@ -4,7 +4,6 @@ const { Category, Product } = require('../../models');
 // The `/api/categories` endpoint
 
 router.get('/', (req, res) => { // find all categories // be sure to include its associated Products
-  console.log("doing something");
 
   Category.findAll({
     include: {
@@ -20,6 +19,7 @@ router.get('/', (req, res) => { // find all categories // be sure to include its
 });
 
 router.get('/:id', (req, res) => {
+
   Category.findOne({
     where: {
       id: req.params.id,
@@ -78,6 +78,7 @@ router.delete('/:id', (req, res) => { // delete a category by its `id` value
     where: {
       id: req.params.id,
     },
+    
   })
     .then((categoryData) => {
       if (!categoryData) {
